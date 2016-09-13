@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hexs.learnactivitydemo">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.hexs.learnactivitydemo.permission.START"/>
+    <uses-permission android:name="com.hexs.learnactivitydemo.permission.WebViewActivity"/>
+
+    <permission android:name="com.hexs.learnactivitydemo.permission.START"/>
+    <permission android:name="com.hexs.learnactivitydemo.permission.WebViewActivity"/>
+
     <application
         android:name=".DemoApplication"
         android:allowBackup="true"
@@ -13,7 +20,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".basicstudy.BActivity" />
@@ -39,13 +46,73 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
 
-                <action android:name="android.intent.action.VIEW"/>
-                <action android:name="com.hexs.learnactivitydemo.intent.action.BrowserActivity"/>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.hexs.learnactivitydemo.intent.action.BrowserActivity" />
 
-                <data android:scheme="app" android:host="browseractivity"/>
+                <data
+                    android:host="browseractivity"
+                    android:scheme="app" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".service.ServiceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".service.MyService">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.hexs.learnactivitydemo.intent.action.MyService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.ServiceForExternalApp"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".broadcastreceiver.BroadcastActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".broadcastreceiver.FirstReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="10">
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.hexs.learnactivitydemo.intent.action.broadcastreceiver" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcastreceiver.ThirdReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="20">
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.hexs.learnactivitydemo.intent.action.broadcastreceiver" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".permission.WebViewActivity"
+            android:permission="com.hexs.learnactivitydemo.permission.WebViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

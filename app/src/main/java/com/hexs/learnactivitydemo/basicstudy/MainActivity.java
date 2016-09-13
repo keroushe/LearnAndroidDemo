@@ -77,4 +77,6 @@ public class MainActivity extends Activity {
         String password = ((DemoApplication) getApplication()).getPassword();
         Log.e(TAG, "username = " + username + ",password = " + password);
     }
+
+
 }
