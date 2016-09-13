@@ -3,16 +3,49 @@
     package="com.hexs.learnactivitydemo">
 
     <application
+        android:name=".DemoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".basicstudy.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".basicstudy.BActivity" />
+        <activity android:name=".basicstudy.CActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.hexs.learnactivitydemo.intent.action.BActivity" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".lanuchmode.LanuchFirstActivity"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".lanuchmode.LanuchSecondActivity" />
+        <activity
+            android:name=".intentandfilter.BrowserActivity"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="com.hexs.learnactivitydemo.intent.action.BrowserActivity"/>
+
+                <data android:scheme="app" android:host="browseractivity"/>
             </intent-filter>
         </activity>
     </application>

@@ -8,27 +8,18 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context=".basicstudy.MainActivity">
+    tools:context=".basicstudy.CActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv"
+        android:textAllCaps="false"
+        android:text="这是C"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="启动一个新的Activity"
-        android:id="@+id/btnstartActivity"
-        android:textAllCaps="false"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="启动新的Activity并获取返回值"
-        android:id="@+id/btnstartActivityForResult"
-        android:textAllCaps="false"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="通过Action方式启动Activity并设置Uri"
-        android:id="@+id/btnstartActionUriActivity"
-        android:textAllCaps="false"/>
-
+        android:text="返回"
+        android:id="@+id/btnClick"/>
 </LinearLayout>
